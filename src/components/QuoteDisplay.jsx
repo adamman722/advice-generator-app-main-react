@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import pauseLookinThing from "../img/pattern-divider-desktop.svg";
 import line from "../img/pause (1).png";
 import ButtonForNewQuote from "./ButtonForNewQuote";
 
