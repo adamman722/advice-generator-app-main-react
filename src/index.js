@@ -8,7 +8,9 @@ import { Provider } from "react-redux";
 import quoteHolderReducer from "./features/quoteHolder";
 
 const store = configureStore({
-  reducer: quoteHolderReducer,
+  reducer: {
+    quoteee: quoteHolderReducer,
+  },
 });
 
 ReactDOM.render(

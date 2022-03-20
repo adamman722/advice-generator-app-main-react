@@ -1,27 +1,21 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { newQuote } from "../features/quoteHolder";
-import axios from "axios";
+import pauseLookinThing from "../img/pattern-divider-desktop.svg";
+import line from "../img/pause (1).png";
+import ButtonForNewQuote from "./ButtonForNewQuote";
 
 function QuoteDisplay() {
-  const dispatch = useDispatch();
-
-  function callForNewQuote() {
-    const url = "https://api.adviceslip.com/advice";
-    axios.get(url).then((res) => {
-      console.log(res.data.slip);
-      dispatch(
-        newQuote({ id: res.data.slip.id, advice: res.data.slip.advice })
-      );
-    });
-  }
-  useEffect(() => {
-    callForNewQuote();
-  }, []);
-
+  const { id, advice } = useSelector((state) => state.quoteee.value);
   return (
-    <div>
-      <button onClick={callForNewQuote}>Get a new quote</button>
+    <div className="inner-box">
+      <div className="advice-text">ADVICE #{id}</div>
+      <div className="advice-itself">"{advice}"</div>
+      <div className="">
+        <div class="divider line one-line">
+          <img src={line} alt="" className="button-img" />
+        </div>
+        <ButtonForNewQuote />
+      </div>
     </div>
   );
 }

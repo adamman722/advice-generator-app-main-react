@@ -1,12 +1,12 @@
 import React from "react";
-import ButtonForNewQuote from "./QuoteDisplay";
+
+import QuoteDisplay from "./QuoteDisplay";
 
 function DisplayBox() {
   return (
     <div className="background">
       <div className="display-flex">
-        {/* Stuff goes here */} hellooo
-        <ButtonForNewQuote />
+        <QuoteDisplay />
       </div>
     </div>
   );

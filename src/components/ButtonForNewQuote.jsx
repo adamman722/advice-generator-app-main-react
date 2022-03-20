@@ -1,9 +1,12 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { newQuote } from "../features/quoteHolder";
 import axios from "axios";
+import loadingImg from "../img/loading.png";
+import dice from "../img/icon-dice.svg";
 
 function ButtonForNewQuote() {
+  const [showButton, setShowButton] = useState(true);
   const dispatch = useDispatch();
 
   function callForNewQuote() {
@@ -14,14 +17,28 @@ function ButtonForNewQuote() {
         newQuote({ id: res.data.slip.id, advice: res.data.slip.advice })
       );
     });
+    setShowButton(false);
+    setTimeout(() => {
+      setShowButton(true);
+    }, 2500);
   }
   useEffect(() => {
     callForNewQuote();
   }, []);
 
+  const loading = (
+    <img src={loadingImg} alt="" className="loading-icon button-thingy" />
+  );
+
   return (
-    <div>
-      <button onClick={callForNewQuote}>Get a new quote</button>
+    <div className="button-box">
+      {showButton ? (
+        <button onClick={callForNewQuote} className="button-thingy">
+          <img src={dice} alt="" />
+        </button>
+      ) : (
+        loading
+      )}
     </div>
   );
 }
