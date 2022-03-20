@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { newQuote } from "../features/quoteHolder";
 import axios from "axios";
 import loadingImg from "../img/loading.png";
