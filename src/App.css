@@ -107,6 +107,7 @@
   justify-content: center;
 }
 .button-thingy {
+  cursor: pointer;
   border-radius: 100%;
   background-color: hsl(150, 100%, 66%);
   border: none;
