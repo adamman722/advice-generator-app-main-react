@@ -7,6 +7,7 @@ import dice from "../img/icon-dice.svg";
 
 function ButtonForNewQuote() {
   const [showButton, setShowButton] = useState(true);
+  const placeHolder = true;
   const dispatch = useDispatch();
 
   function callForNewQuote() {
@@ -24,7 +25,7 @@ function ButtonForNewQuote() {
   }
   useEffect(() => {
     callForNewQuote();
-  }, []);
+  }, [placeHolder]);
 
   const loading = (
     <img src={loadingImg} alt="" className="loading-icon button-thingy" />
